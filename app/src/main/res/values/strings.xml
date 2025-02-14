@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Layouts_example</string>
+    <string name="first_name">First name:</string>
+    <string name="enter_name">Enter First Name</string>
+    <string name="last_name">Last name:</string>
+    <string name="enter_last_name">Enter Last name</string>
+    <string name="submit">Submit</string>
+    <string name="relative_layout">Relative Layout</string>
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    android:padding="32dp"
+    tools:context=".RelativeActivity">
+
+    <TextView
+        android:id="@+id/TitleView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/relative_layout"
+        android:textStyle="bold"
+        android:textSize="30sp" />
+    <!--  subview - TextView  -->
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:padding="16dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/first_name"
+        android:textSize="20sp" />
+
+    <!--  subview - EditText  -->
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toEndOf="@id/textView1"
+        android:elegantTextHeight="true"
+        android:hint="@string/enter_name"
+        android:inputType="text"
+        android:padding="16dp" />
+
+    <!--  subview - TextView  -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_alignParentStart="true"
+        android:padding="16dp"
+        android:text="@string/last_name"
+        android:textSize="20sp" />
+
+    <!--  subview - EditText  -->
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toEndOf="@id/textView2"
+        android:elegantTextHeight="true"
+        android:hint="@string/enter_last_name"
+        android:padding="16dp"
+        android:inputType="text"
+        />
+
+    <!--  subview - Button  -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView2"
+        android:backgroundTint="@color/black"
+        android:text="@string/submit" />
+</RelativeLayout>
