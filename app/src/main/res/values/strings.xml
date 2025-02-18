@@ -6,4 +6,10 @@
     <string name="enter_last_name">Enter Last name</string>
     <string name="submit">Submit</string>
     <string name="relative_layout">Relative Layout</string>
+    <string name="linear_layout">Linear Layout</string>
+    <string name="username">Username</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
 </resources>
