@@ -36,5 +36,7 @@ dependencies {
     implementation libs.constraintlayout
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
+    implementation libs.firebase.messaging
     androidTestImplementation libs.espresso.core
+    implementation libs.constraintlayout.v214
 }

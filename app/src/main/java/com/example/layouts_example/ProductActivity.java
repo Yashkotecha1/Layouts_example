@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,8 +37,16 @@ public class ProductActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(ProductActivity.this,RelativeActivity.class);
-                startActivity(i);
+
+                if (position == 0)
+                {
+                    Intent i = new Intent(ProductActivity.this,RelativeActivity.class);
+                    startActivity(i);
+                }
+                else {
+                    Toast.makeText(ProductActivity.this, "Here is no Activity :)", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

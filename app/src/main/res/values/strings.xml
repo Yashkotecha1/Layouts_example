@@ -12,5 +12,7 @@
     <string name="password">Password</string>
     <string name="enter_password">Enter Password</string>
     <string name="login">Login</string>
+    <string name="reply_label">Replay</string>
     <string name="productdiscription">New Apple iPhone 15 Plus. 48MP main camera with 2x Telephoto and up to 4x resolution. USB-C connector. All-day battery life up to 26hrs video playback. Safety features include Roadside Assistance and Emergency SOS via satellite, plus Crash Detection. Dynamic Island for alerts and Live Activities. Color-infused glass and aluminum design making it incredibly durable. A16 Bionic chip.</string>
+    <string name="txt_noti">Welcome To GeeksforGeeks</string>
 </resources>
