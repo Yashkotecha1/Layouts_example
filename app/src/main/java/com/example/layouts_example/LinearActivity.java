@@ -2,11 +2,9 @@ package com.example.layouts_example;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.RemoteInput;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,19 +13,24 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RemoteViews;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import java.util.Random;
+
 public class LinearActivity extends AppCompatActivity {
 
     Button btn_login;
     TextView txt_username;
+
+    EditText edt_username;
+    String otp = "";
     private final String channelId = "i.apps.notifications"; // Unique channel ID for notifications
     private final String description = "Test notification";  // Description for the notification channel
     private final int notificationId = 1234; // Unique identifier for the notification
@@ -38,15 +41,33 @@ public class LinearActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_linear);
-        btn_login = findViewById(R.id.btn_login);
-        txt_username = findViewById(R.id.txt_username);
-          R.string.txt_noti = Integer.parseInt(txt_username.getText().toString());
+        FindViewByID();
+        Body();
+
+    }
+
+    private void Body()
+    {
         createNotificationChannel();
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LinearActivity.this, ProductActivity.class);
+                Intent intent = new Intent(LinearActivity.this, OtpLoginActivity.class);
+                Random random = new Random();
+
+                // Generate a 4-digit OTP
+
+                for (int i = 0; i < 4; i++) {
+                    otp += random.nextInt(10); // Generate a random number between 0 and 9
+                }
+
+                // Output the generated OTP
+                System.out.println("Your OTP is: " + otp);
+                intent.putExtra("otp",otp);
+                intent.putExtra("otp_1",otp);
+
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     if (ActivityCompat.checkSelfPermission(LinearActivity.this, Manifest.permission.POST_NOTIFICATIONS)
                             != PackageManager.PERMISSION_GRANTED) {
@@ -60,10 +81,20 @@ public class LinearActivity extends AppCompatActivity {
                     }
                 }
                 sendNotification(); //
-                startActivity(i);
+
+                startActivity(intent);
             }
         });
+
     }
+
+    private void FindViewByID()
+    {
+        btn_login = findViewById(R.id.btn_login);
+        txt_username = findViewById(R.id.txt_username);
+        edt_username = findViewById(R.id.edt_username);
+    }
+
     private void createNotificationChannel() {
         NotificationChannel notificationChannel = new NotificationChannel(
                 channelId,
@@ -93,14 +124,21 @@ public class LinearActivity extends AppCompatActivity {
         );
 
         // Custom layout for the notification content
-        @SuppressLint("RemoteViewLayout") RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.activity_after_notification);
+        @SuppressLint("RemoteViewLayout")
+        RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.activity_after_notification);
+
+        String username = edt_username.getText().toString();
+        System.out.println("---------- msg is -------------"+username);
+        contentView.setTextViewText(R.id.textView, "Otp : "+ otp); // Set dynamic text
+
+        otp = " ";
 
         // Build the notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
                 .setSmallIcon(R.drawable.baseline_message_24) // Notification icon
                 .setContent(contentView) // Custom notification content
                 .setContentTitle("Hello") // Title displayed in the notification
-                .setContentText("Welcome "+txt_username.getText().toString()) // Text displayed in the notification
+                .setContentText(otp) // Text displayed in the notification
                 .setContentIntent(pendingIntent) // Pending intent triggered when tapped
                 .setAutoCancel(true) // Dismiss notification when tapped
                 .setPriority(NotificationCompat.PRIORITY_HIGH); // Notification priority for better visibility

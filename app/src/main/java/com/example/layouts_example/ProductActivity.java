@@ -25,7 +25,7 @@ public class ProductActivity extends AppCompatActivity {
         gridView = findViewById(R.id.grid_view);
         ArrayList<ProductModel> list = new ArrayList<>();
 
-        list.add(new ProductModel("samsung s24", R.drawable.i));
+        list.add(new ProductModel("samsung s24", R.drawable.s));
         list.add(new ProductModel("realme 60 pro 5g", R.drawable.r));
         list.add(new ProductModel("iphone 15", R.drawable.i));
         list.add(new ProductModel("oppo reno 11", R.drawable.oppo));
