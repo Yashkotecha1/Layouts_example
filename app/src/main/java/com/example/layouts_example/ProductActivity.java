@@ -41,9 +41,17 @@ public class ProductActivity extends AppCompatActivity {
                 if (position == 0)
                 {
                     Intent i = new Intent(ProductActivity.this,RelativeActivity.class);
+                    i.putExtra("img","s");
+                    i.putExtra("name","samsung s24");
                     startActivity(i);
-                }
-                else {
+                } else if (position == 1)
+                {
+                    Intent i = new Intent(ProductActivity.this,RelativeActivity.class);
+                    i.putExtra("img","r");
+                    i.putExtra("name","realme 60 pro 5g");
+                    startActivity(i);
+
+                } else {
                     Toast.makeText(ProductActivity.this, "Here is no Activity :)", Toast.LENGTH_SHORT).show();
                 }
 

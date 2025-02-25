@@ -17,4 +17,6 @@
     <string name="txt_noti">Welcome To GeeksforGeeks</string>
     <string name="enter_otp">Enter Otp</string>
     <string name="enter_otp_edt">Enter Otp</string>
+    <string name="add_to_cart">ADD To Cart</string>
+    <string name="todo">TODO</string>
 </resources>

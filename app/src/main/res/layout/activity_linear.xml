@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LinearActivity"
+
     android:gravity="center"
     android:orientation="vertical">
     <LinearLayout
@@ -90,6 +90,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/login"
             android:textSize="20sp"
+            android:backgroundTint="@color/black"
             android:textStyle="bold"/>
     </LinearLayout>
 </LinearLayout>

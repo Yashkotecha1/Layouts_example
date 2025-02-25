@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-
 import java.util.Random;
 
 public class LinearActivity extends AppCompatActivity {
@@ -65,7 +64,7 @@ public class LinearActivity extends AppCompatActivity {
                 // Output the generated OTP
                 System.out.println("Your OTP is: " + otp);
                 intent.putExtra("otp",otp);
-                intent.putExtra("otp_1",otp);
+
 
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -130,6 +129,7 @@ public class LinearActivity extends AppCompatActivity {
         String username = edt_username.getText().toString();
         System.out.println("---------- msg is -------------"+username);
         contentView.setTextViewText(R.id.textView, "Otp : "+ otp); // Set dynamic text
+
 
         otp = " ";
 

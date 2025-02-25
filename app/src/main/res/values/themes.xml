@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.Layouts_example" parent="Base.Theme.Layouts_example" />
+
+    <item name="Theme.Layouts_example" type="color" format="color">
+    </item>
 </resources>

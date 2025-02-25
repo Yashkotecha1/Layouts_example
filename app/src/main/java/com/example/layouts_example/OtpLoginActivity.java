@@ -29,7 +29,6 @@ public class OtpLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_otp_login);
-
         FindViewByID();
         Body();
     }
@@ -46,6 +45,7 @@ public class OtpLoginActivity extends AppCompatActivity {
                 {
                     intent = new Intent(OtpLoginActivity.this, ProductActivity.class);
                     startActivity(intent);
+                    finish();
                 }
                 else
                 {
@@ -55,7 +55,6 @@ public class OtpLoginActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void FindViewByID() {
         txt_otp_txt = findViewById(R.id.txt_otp_txt);
